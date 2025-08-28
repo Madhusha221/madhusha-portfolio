@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Certificates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9ff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .certificate-card {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+    .certificate-card img {
+      width: 80%;  /* medium size */
+      max-width: 300px;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+    }
+    .rotate-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #0077b6;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .rotate-btn:hover {
+      background: #03045e;
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      text-decoration: none;
+      background: #0077b6;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .back-link:hover {
+      background: #03045e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Certificates</h1>
+  <div class="certificates-grid">
+
+    <div class="certificate-card">
+      <img src="./assets/certificate1.jpeg" alt="Certificate 1">
+      <button class="rotate-btn" onclick="rotateImage(this)">⟳</button>
+    </div>
+
+    <div class="certificate-card">
+      <img src="./assets/certificate2.jpeg" alt="Certificate 2">
+      <button class="rotate-btn" onclick="rotateImage(this)">⟳</button>
+    </div>
+
+    <div class="certificate-card">
+      <img src="./assets/certificate3.jpeg" alt="Certificate 3">
+      <button class="rotate-btn" onclick="rotateImage(this)">⟳</button>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back-link">⬅ Back to Portfolio</a>
+
+  <script>
+    function rotateImage(button) {
+      const img = button.previousElementSibling;
+      let currentRotation = img.getAttribute("data-rotation") || 0;
+      currentRotation = parseInt(currentRotation) + 90; // rotate 90° each click
+      img.style.transform = `rotate(${currentRotation}deg)`;
+      img.setAttribute("data-rotation", currentRotation);
+    }
+  </script>
+
+</body>
+</html>
